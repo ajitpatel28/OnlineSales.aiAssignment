@@ -12,8 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.ajit.onlinesalesaiassignment.R
 import com.ajit.onlinesalesaiassignment.ui.navigation.Destinations
 import com.ajit.onlinesalesaiassignment.ui.viewmodel.ExpressionViewModel
 
@@ -41,7 +43,7 @@ fun HistoryTab(viewModel: ExpressionViewModel,
         ) {
             Icon(
                 imageVector = Icons.Filled.ArrowBack,
-                contentDescription = "Back"
+                contentDescription = stringResource(R.string.back)
             )
         }
 
@@ -58,7 +60,7 @@ fun HistoryTab(viewModel: ExpressionViewModel,
             }
     }else{
             Text(
-                text = "No history",
+                text = stringResource(R.string.no_history),
                 color = Color.Black,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )

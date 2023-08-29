@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">OnlineSales.aiAssignment</string>
+    <string name="no_history">No history</string>
+    <string name="back">Back</string>
+    <string name="enter_expression">Enter Expression</string>
+    <string name="submit">Submit</string>
+    <string name="show_history">Show History</string>
+    <string name="results_label">Results:</string>
 </resources>

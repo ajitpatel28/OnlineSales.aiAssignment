@@ -2,6 +2,7 @@ package com.ajit.onlinesalesaiassignment.di
 
 
 import com.ajit.onlinesalesaiassignment.data.api.ExpressionApiService
+import com.ajit.onlinesalesaiassignment.utils.Constants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -28,7 +29,7 @@ object AppModule {
     @Singleton
     fun provideExpressionApiService(moshi: Moshi): ExpressionApiService {
         return Retrofit.Builder()
-            .baseUrl("https://api.mathjs.org/v4/") // Adjust the base URL accordingly
+            .baseUrl(Constants.BASE_URL) // Adjust the base URL accordingly
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(ExpressionApiService::class.java)

@@ -12,11 +12,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.ajit.onlinesalesaiassignment.R
 import com.ajit.onlinesalesaiassignment.ui.navigation.Destinations
 import com.ajit.onlinesalesaiassignment.ui.viewmodel.ExpressionViewModel
 import com.ajit.onlinesalesaiassignment.utils.UiState
@@ -49,7 +51,7 @@ fun MainScreen(
                 expressionInput = input
                 errorMessage = null          // Clear error message when input changes
             },
-            label = { Text("Enter Expression") },
+            label = { Text(stringResource(R.string.enter_expression)) },
             modifier = Modifier
                 .fillMaxWidth()
                 .heightIn(max = 200.dp)
@@ -76,7 +78,7 @@ fun MainScreen(
         Button(
             onClick = {
                 if (expressionInput.isNotEmpty()) {
-                    viewModel.evaluateExpression(expressionInput)
+                    viewModel.evaluateExpression(expressionInput.trim())
                     expressionInput = ""        // Clear the input after evaluating
                 } else {
                     errorMessage = "Please enter an expression to evaluate"
@@ -85,7 +87,7 @@ fun MainScreen(
             },
             modifier = Modifier.align(Alignment.End)
         ) {
-            Text(text = "Submit")
+            Text(text = stringResource(R.string.submit))
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -100,7 +102,7 @@ fun MainScreen(
             },
             modifier = Modifier.align(Alignment.End)
         ) {
-            Text(text = "Show History")
+            Text(text = stringResource(R.string.show_history))
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -117,7 +119,7 @@ fun MainScreen(
                     if (formattedResult.isNotEmpty()) {
 
                         Text(
-                            text = "Results:",
+                            text = stringResource(R.string.results_label),
                             style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp),
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
@@ -141,7 +143,7 @@ fun MainScreen(
             }
             is UiState.Loading -> {
                 Text(
-                    text = "Results:",
+                    text = stringResource(R.string.results_label),
                     style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp),
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
