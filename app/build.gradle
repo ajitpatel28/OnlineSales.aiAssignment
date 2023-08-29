@@ -25,12 +25,6 @@ android {
 
 
 
-    testOptions {
-
-        unitTests.all {
-            jvmArgs '-noverify'
-        }
-    }
     buildTypes {
         release {
             minifyEnabled false
@@ -84,6 +78,8 @@ dependencies {
     implementation 'androidx.test.ext:junit-ktx:1.1.5'
     kapt "androidx.room:room-compiler:2.5.2"
 
+
+    implementation 'androidx.work:work-runtime:2.8.1'
 
     //Dagger Hilt
 
